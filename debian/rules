@@ -1,0 +1,89 @@
+#!/usr/bin/make -f
+
+include /usr/share/dpkg/architecture.mk
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+CONTRIB  := $(CURDIR)/opencv_contrib/modules
+BUILDDIR := obj-$(DEB_HOST_MULTIARCH)
+
+# Feature/layout flags shared by the dynamic and static passes.
+COMMON_FLAGS = \
+	--no-warn-unused-cli \
+	-DCMAKE_BUILD_TYPE=Release \
+	-DOPENCV_EXTRA_MODULES_PATH=$(CONTRIB) \
+	-DCMAKE_INSTALL_LIBDIR=lib/$(DEB_HOST_MULTIARCH) \
+	-DOPENCV_GENERATE_PKGCONFIG=ON \
+	-DOPENCV_GENERATE_SETUPVARS=OFF \
+	-DOPENCV_ENABLE_NONFREE=OFF \
+	-DBUILD_opencv_world=OFF \
+	-DBUILD_DOCS=OFF \
+	-DBUILD_EXAMPLES=OFF \
+	-DINSTALL_C_EXAMPLES=OFF \
+	-DINSTALL_PYTHON_EXAMPLES=OFF \
+	-DINSTALL_TESTS=OFF \
+	-DBUILD_TESTS=OFF \
+	-DBUILD_PERF_TESTS=OFF \
+	-DBUILD_opencv_python2=OFF \
+	-DBUILD_opencv_python3=OFF \
+	-DBUILD_opencv_python_bindings_generator=OFF \
+	-DBUILD_opencv_python_tests=OFF \
+	-DBUILD_opencv_java=OFF \
+	-DBUILD_opencv_java_bindings_generator=OFF \
+	-DBUILD_JAVA=OFF \
+	-DBUILD_opencv_js=OFF \
+	-DBUILD_opencv_js_bindings_generator=OFF \
+	-DBUILD_opencv_objc=OFF \
+	-DBUILD_opencv_objc_bindings_generator=OFF \
+	-DBUILD_opencv_ts=OFF \
+	-DWITH_JPEG=ON \
+	-DWITH_PNG=ON \
+	-DWITH_TIFF=ON \
+	-DWITH_WEBP=ON \
+	-DWITH_OPENJPEG=ON \
+	-DWITH_OPENEXR=ON \
+	-DWITH_GTK=ON \
+	-DWITH_GTK_2_X=OFF \
+	-DWITH_QT=OFF \
+	-DWITH_FFMPEG=ON \
+	-DWITH_GSTREAMER=ON \
+	-DWITH_V4L=ON \
+	-DWITH_LIBV4L=ON \
+	-DWITH_EIGEN=ON \
+	-DWITH_OPENCL=ON \
+	-DWITH_IPP=OFF \
+	-DWITH_CUDA=OFF
+
+%:
+	dh $@ --buildsystem=cmake --sourcedirectory=opencv
+
+override_dh_auto_clean:
+	dh_auto_clean -B $(BUILDDIR)
+
+override_dh_auto_configure:
+	dh_auto_configure -B $(BUILDDIR) -- $(COMMON_FLAGS) \
+		-DBUILD_SHARED_LIBS=ON \
+		-DBUILD_opencv_apps=ON
+
+override_dh_auto_build:
+	dh_auto_build -B $(BUILDDIR)
+
+override_dh_auto_install:
+	dh_auto_install -B $(BUILDDIR) --destdir=debian/tmp
+
+execute_before_dh_install:
+	# cvconfig.h is architecture-specific: relocate it to the multiarch include
+	# dir, as Debian does (it is only included under __OPENCV_BUILD, never by
+	# consumers, so this does not affect downstream compiles).
+	mkdir -p debian/tmp/usr/include/$(DEB_HOST_MULTIARCH)/opencv4/opencv2
+	mv debian/tmp/usr/include/opencv4/opencv2/cvconfig.h \
+	   debian/tmp/usr/include/$(DEB_HOST_MULTIARCH)/opencv4/opencv2/cvconfig.h
+	# data: keep only the cascade/quality data (opencv-data); drop bundled
+	# licences and valgrind suppressions, as Debian does.
+	-$(RM) -r debian/tmp/usr/share/licenses
+	-find debian/tmp -type f -name '*.supp' -delete
+	-find debian/tmp -type d -empty -delete
+
+# Every staged file must land in exactly one package — fail loudly otherwise.
+override_dh_missing:
+	dh_missing --fail-missing

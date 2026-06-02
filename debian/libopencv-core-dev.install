@@ -1,0 +1,6 @@
+usr/include/opencv4/opencv2/core.hpp
+usr/include/opencv4/opencv2/core
+usr/lib/*/libopencv_core.so
+usr/include/opencv4/opencv2/opencv.hpp
+usr/include/opencv4/opencv2/opencv_modules.hpp
+usr/include/*/opencv4/opencv2/cvconfig.h
