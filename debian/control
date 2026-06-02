@@ -1,33 +1,37 @@
 Source: libopencv
 Priority: optional
 Maintainer: special-delivery <development@special-delivery.org>
-Build-Depends: debhelper-compat (= 13),
-               cmake,
-               zlib1g-dev,
-               libjpeg-dev,
-               libpng-dev,
-               libtiff-dev,
-               libwebp-dev,
-               libopenjp2-7-dev,
-               libopenexr-dev,
-               libgtk-3-dev,
-               libavcodec-dev,
-               libavformat-dev,
-               libavutil-dev,
-               libswscale-dev,
-               libgstreamer1.0-dev,
-               libgstreamer-plugins-base1.0-dev,
-               libv4l-dev,
-               libeigen3-dev
+Build-Depends:
+ debhelper-compat (= 13),
+ cmake,
+ libavcodec-dev,
+ libavformat-dev,
+ libavutil-dev,
+ libeigen3-dev,
+ libgstreamer-plugins-base1.0-dev,
+ libgstreamer1.0-dev,
+ libgtk-3-dev,
+ libjpeg-dev,
+ libopenexr-dev,
+ libopenjp2-7-dev,
+ libpng-dev,
+ libswscale-dev,
+ libtiff-dev,
+ libv4l-dev,
+ libwebp-dev,
+ zlib1g-dev,
 Standards-Version: 4.6.0
 Section: libs
+X-Style: black
 
 Package: libopencv-calib3d413
 Architecture: any
 Multi-Arch: same
-Pre-Depends: ${misc:Pre-Depends}
-Depends: ${misc:Depends},
-         ${shlibs:Depends}
+Pre-Depends:
+ ${misc:Pre-Depends},
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
 Description: Open Source Computer Vision Library (calib3d module - runtime)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -37,9 +41,11 @@ Description: Open Source Computer Vision Library (calib3d module - runtime)
 Package: libopencv-core413
 Architecture: any
 Multi-Arch: same
-Pre-Depends: ${misc:Pre-Depends}
-Depends: ${misc:Depends},
-         ${shlibs:Depends}
+Pre-Depends:
+ ${misc:Pre-Depends},
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
 Description: Open Source Computer Vision Library (core module - runtime)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -49,9 +55,11 @@ Description: Open Source Computer Vision Library (core module - runtime)
 Package: libopencv-dnn413
 Architecture: any
 Multi-Arch: same
-Pre-Depends: ${misc:Pre-Depends}
-Depends: ${misc:Depends},
-         ${shlibs:Depends}
+Pre-Depends:
+ ${misc:Pre-Depends},
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
 Description: Open Source Computer Vision Library (dnn module - runtime)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -61,9 +69,11 @@ Description: Open Source Computer Vision Library (dnn module - runtime)
 Package: libopencv-features2d413
 Architecture: any
 Multi-Arch: same
-Pre-Depends: ${misc:Pre-Depends}
-Depends: ${misc:Depends},
-         ${shlibs:Depends}
+Pre-Depends:
+ ${misc:Pre-Depends},
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
 Description: Open Source Computer Vision Library (features2d module - runtime)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -73,9 +83,11 @@ Description: Open Source Computer Vision Library (features2d module - runtime)
 Package: libopencv-flann413
 Architecture: any
 Multi-Arch: same
-Pre-Depends: ${misc:Pre-Depends}
-Depends: ${misc:Depends},
-         ${shlibs:Depends}
+Pre-Depends:
+ ${misc:Pre-Depends},
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
 Description: Open Source Computer Vision Library (flann module - runtime)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -85,9 +97,11 @@ Description: Open Source Computer Vision Library (flann module - runtime)
 Package: libopencv-highgui413
 Architecture: any
 Multi-Arch: same
-Pre-Depends: ${misc:Pre-Depends}
-Depends: ${misc:Depends},
-         ${shlibs:Depends}
+Pre-Depends:
+ ${misc:Pre-Depends},
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
 Description: Open Source Computer Vision Library (highgui module - runtime)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -97,9 +111,11 @@ Description: Open Source Computer Vision Library (highgui module - runtime)
 Package: libopencv-imgcodecs413
 Architecture: any
 Multi-Arch: same
-Pre-Depends: ${misc:Pre-Depends}
-Depends: ${misc:Depends},
-         ${shlibs:Depends}
+Pre-Depends:
+ ${misc:Pre-Depends},
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
 Description: Open Source Computer Vision Library (imgcodecs module - runtime)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -109,9 +125,11 @@ Description: Open Source Computer Vision Library (imgcodecs module - runtime)
 Package: libopencv-imgproc413
 Architecture: any
 Multi-Arch: same
-Pre-Depends: ${misc:Pre-Depends}
-Depends: ${misc:Depends},
-         ${shlibs:Depends}
+Pre-Depends:
+ ${misc:Pre-Depends},
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
 Description: Open Source Computer Vision Library (imgproc module - runtime)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -121,9 +139,11 @@ Description: Open Source Computer Vision Library (imgproc module - runtime)
 Package: libopencv-ml413
 Architecture: any
 Multi-Arch: same
-Pre-Depends: ${misc:Pre-Depends}
-Depends: ${misc:Depends},
-         ${shlibs:Depends}
+Pre-Depends:
+ ${misc:Pre-Depends},
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
 Description: Open Source Computer Vision Library (ml module - runtime)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -133,9 +153,11 @@ Description: Open Source Computer Vision Library (ml module - runtime)
 Package: libopencv-objdetect413
 Architecture: any
 Multi-Arch: same
-Pre-Depends: ${misc:Pre-Depends}
-Depends: ${misc:Depends},
-         ${shlibs:Depends}
+Pre-Depends:
+ ${misc:Pre-Depends},
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
 Description: Open Source Computer Vision Library (objdetect module - runtime)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -145,9 +167,11 @@ Description: Open Source Computer Vision Library (objdetect module - runtime)
 Package: libopencv-photo413
 Architecture: any
 Multi-Arch: same
-Pre-Depends: ${misc:Pre-Depends}
-Depends: ${misc:Depends},
-         ${shlibs:Depends}
+Pre-Depends:
+ ${misc:Pre-Depends},
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
 Description: Open Source Computer Vision Library (photo module - runtime)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -157,9 +181,11 @@ Description: Open Source Computer Vision Library (photo module - runtime)
 Package: libopencv-shape413
 Architecture: any
 Multi-Arch: same
-Pre-Depends: ${misc:Pre-Depends}
-Depends: ${misc:Depends},
-         ${shlibs:Depends}
+Pre-Depends:
+ ${misc:Pre-Depends},
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
 Description: Open Source Computer Vision Library (shape module - runtime)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -169,9 +195,11 @@ Description: Open Source Computer Vision Library (shape module - runtime)
 Package: libopencv-stitching413
 Architecture: any
 Multi-Arch: same
-Pre-Depends: ${misc:Pre-Depends}
-Depends: ${misc:Depends},
-         ${shlibs:Depends}
+Pre-Depends:
+ ${misc:Pre-Depends},
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
 Description: Open Source Computer Vision Library (stitching module - runtime)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -181,9 +209,11 @@ Description: Open Source Computer Vision Library (stitching module - runtime)
 Package: libopencv-superres413
 Architecture: any
 Multi-Arch: same
-Pre-Depends: ${misc:Pre-Depends}
-Depends: ${misc:Depends},
-         ${shlibs:Depends}
+Pre-Depends:
+ ${misc:Pre-Depends},
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
 Description: Open Source Computer Vision Library (superres module - runtime)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -193,9 +223,11 @@ Description: Open Source Computer Vision Library (superres module - runtime)
 Package: libopencv-video413
 Architecture: any
 Multi-Arch: same
-Pre-Depends: ${misc:Pre-Depends}
-Depends: ${misc:Depends},
-         ${shlibs:Depends}
+Pre-Depends:
+ ${misc:Pre-Depends},
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
 Description: Open Source Computer Vision Library (video module - runtime)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -205,9 +237,11 @@ Description: Open Source Computer Vision Library (video module - runtime)
 Package: libopencv-videoio413
 Architecture: any
 Multi-Arch: same
-Pre-Depends: ${misc:Pre-Depends}
-Depends: ${misc:Depends},
-         ${shlibs:Depends}
+Pre-Depends:
+ ${misc:Pre-Depends},
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
 Description: Open Source Computer Vision Library (videoio module - runtime)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -217,9 +251,11 @@ Description: Open Source Computer Vision Library (videoio module - runtime)
 Package: libopencv-videostab413
 Architecture: any
 Multi-Arch: same
-Pre-Depends: ${misc:Pre-Depends}
-Depends: ${misc:Depends},
-         ${shlibs:Depends}
+Pre-Depends:
+ ${misc:Pre-Depends},
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
 Description: Open Source Computer Vision Library (videostab module - runtime)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -229,9 +265,11 @@ Description: Open Source Computer Vision Library (videostab module - runtime)
 Package: libopencv-contrib413
 Architecture: any
 Multi-Arch: same
-Pre-Depends: ${misc:Pre-Depends}
-Depends: ${misc:Depends},
-         ${shlibs:Depends}
+Pre-Depends:
+ ${misc:Pre-Depends},
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
 Description: Open Source Computer Vision Library (contrib modules - runtime)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -241,9 +279,10 @@ Description: Open Source Computer Vision Library (contrib modules - runtime)
 Package: libopencv-calib3d-dev
 Architecture: any
 Section: libdevel
-Depends: libopencv-calib3d413 (= ${binary:Version}),
-         libopencv-core-dev (= ${binary:Version}),
-         ${misc:Depends}
+Depends:
+ libopencv-calib3d413 (= ${binary:Version}),
+ libopencv-core-dev (= ${binary:Version}),
+ ${misc:Depends},
 Description: Open Source Computer Vision Library (the calib3d module - development)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -253,8 +292,9 @@ Description: Open Source Computer Vision Library (the calib3d module - developme
 Package: libopencv-core-dev
 Architecture: any
 Section: libdevel
-Depends: libopencv-core413 (= ${binary:Version}),
-         ${misc:Depends}
+Depends:
+ libopencv-core413 (= ${binary:Version}),
+ ${misc:Depends},
 Description: Open Source Computer Vision Library (the core module - development)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -264,9 +304,10 @@ Description: Open Source Computer Vision Library (the core module - development)
 Package: libopencv-dnn-dev
 Architecture: any
 Section: libdevel
-Depends: libopencv-dnn413 (= ${binary:Version}),
-         libopencv-core-dev (= ${binary:Version}),
-         ${misc:Depends}
+Depends:
+ libopencv-core-dev (= ${binary:Version}),
+ libopencv-dnn413 (= ${binary:Version}),
+ ${misc:Depends},
 Description: Open Source Computer Vision Library (the dnn module - development)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -276,9 +317,10 @@ Description: Open Source Computer Vision Library (the dnn module - development)
 Package: libopencv-features2d-dev
 Architecture: any
 Section: libdevel
-Depends: libopencv-features2d413 (= ${binary:Version}),
-         libopencv-core-dev (= ${binary:Version}),
-         ${misc:Depends}
+Depends:
+ libopencv-core-dev (= ${binary:Version}),
+ libopencv-features2d413 (= ${binary:Version}),
+ ${misc:Depends},
 Description: Open Source Computer Vision Library (the features2d module - development)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -288,9 +330,10 @@ Description: Open Source Computer Vision Library (the features2d module - develo
 Package: libopencv-flann-dev
 Architecture: any
 Section: libdevel
-Depends: libopencv-flann413 (= ${binary:Version}),
-         libopencv-core-dev (= ${binary:Version}),
-         ${misc:Depends}
+Depends:
+ libopencv-core-dev (= ${binary:Version}),
+ libopencv-flann413 (= ${binary:Version}),
+ ${misc:Depends},
 Description: Open Source Computer Vision Library (the flann module - development)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -300,9 +343,10 @@ Description: Open Source Computer Vision Library (the flann module - development
 Package: libopencv-highgui-dev
 Architecture: any
 Section: libdevel
-Depends: libopencv-highgui413 (= ${binary:Version}),
-         libopencv-core-dev (= ${binary:Version}),
-         ${misc:Depends}
+Depends:
+ libopencv-core-dev (= ${binary:Version}),
+ libopencv-highgui413 (= ${binary:Version}),
+ ${misc:Depends},
 Description: Open Source Computer Vision Library (the highgui module - development)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -312,9 +356,10 @@ Description: Open Source Computer Vision Library (the highgui module - developme
 Package: libopencv-imgcodecs-dev
 Architecture: any
 Section: libdevel
-Depends: libopencv-imgcodecs413 (= ${binary:Version}),
-         libopencv-core-dev (= ${binary:Version}),
-         ${misc:Depends}
+Depends:
+ libopencv-core-dev (= ${binary:Version}),
+ libopencv-imgcodecs413 (= ${binary:Version}),
+ ${misc:Depends},
 Description: Open Source Computer Vision Library (the imgcodecs module - development)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -324,9 +369,10 @@ Description: Open Source Computer Vision Library (the imgcodecs module - develop
 Package: libopencv-imgproc-dev
 Architecture: any
 Section: libdevel
-Depends: libopencv-imgproc413 (= ${binary:Version}),
-         libopencv-core-dev (= ${binary:Version}),
-         ${misc:Depends}
+Depends:
+ libopencv-core-dev (= ${binary:Version}),
+ libopencv-imgproc413 (= ${binary:Version}),
+ ${misc:Depends},
 Description: Open Source Computer Vision Library (the imgproc module - development)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -336,9 +382,10 @@ Description: Open Source Computer Vision Library (the imgproc module - developme
 Package: libopencv-ml-dev
 Architecture: any
 Section: libdevel
-Depends: libopencv-ml413 (= ${binary:Version}),
-         libopencv-core-dev (= ${binary:Version}),
-         ${misc:Depends}
+Depends:
+ libopencv-core-dev (= ${binary:Version}),
+ libopencv-ml413 (= ${binary:Version}),
+ ${misc:Depends},
 Description: Open Source Computer Vision Library (the ml module - development)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -348,9 +395,10 @@ Description: Open Source Computer Vision Library (the ml module - development)
 Package: libopencv-objdetect-dev
 Architecture: any
 Section: libdevel
-Depends: libopencv-objdetect413 (= ${binary:Version}),
-         libopencv-core-dev (= ${binary:Version}),
-         ${misc:Depends}
+Depends:
+ libopencv-core-dev (= ${binary:Version}),
+ libopencv-objdetect413 (= ${binary:Version}),
+ ${misc:Depends},
 Description: Open Source Computer Vision Library (the objdetect module - development)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -360,9 +408,10 @@ Description: Open Source Computer Vision Library (the objdetect module - develop
 Package: libopencv-photo-dev
 Architecture: any
 Section: libdevel
-Depends: libopencv-photo413 (= ${binary:Version}),
-         libopencv-core-dev (= ${binary:Version}),
-         ${misc:Depends}
+Depends:
+ libopencv-core-dev (= ${binary:Version}),
+ libopencv-photo413 (= ${binary:Version}),
+ ${misc:Depends},
 Description: Open Source Computer Vision Library (the photo module - development)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -372,9 +421,10 @@ Description: Open Source Computer Vision Library (the photo module - development
 Package: libopencv-shape-dev
 Architecture: any
 Section: libdevel
-Depends: libopencv-shape413 (= ${binary:Version}),
-         libopencv-core-dev (= ${binary:Version}),
-         ${misc:Depends}
+Depends:
+ libopencv-core-dev (= ${binary:Version}),
+ libopencv-shape413 (= ${binary:Version}),
+ ${misc:Depends},
 Description: Open Source Computer Vision Library (the shape module - development)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -384,9 +434,10 @@ Description: Open Source Computer Vision Library (the shape module - development
 Package: libopencv-stitching-dev
 Architecture: any
 Section: libdevel
-Depends: libopencv-stitching413 (= ${binary:Version}),
-         libopencv-core-dev (= ${binary:Version}),
-         ${misc:Depends}
+Depends:
+ libopencv-core-dev (= ${binary:Version}),
+ libopencv-stitching413 (= ${binary:Version}),
+ ${misc:Depends},
 Description: Open Source Computer Vision Library (the stitching module - development)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -396,9 +447,10 @@ Description: Open Source Computer Vision Library (the stitching module - develop
 Package: libopencv-superres-dev
 Architecture: any
 Section: libdevel
-Depends: libopencv-superres413 (= ${binary:Version}),
-         libopencv-core-dev (= ${binary:Version}),
-         ${misc:Depends}
+Depends:
+ libopencv-core-dev (= ${binary:Version}),
+ libopencv-superres413 (= ${binary:Version}),
+ ${misc:Depends},
 Description: Open Source Computer Vision Library (the superres module - development)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -408,9 +460,10 @@ Description: Open Source Computer Vision Library (the superres module - developm
 Package: libopencv-video-dev
 Architecture: any
 Section: libdevel
-Depends: libopencv-video413 (= ${binary:Version}),
-         libopencv-core-dev (= ${binary:Version}),
-         ${misc:Depends}
+Depends:
+ libopencv-core-dev (= ${binary:Version}),
+ libopencv-video413 (= ${binary:Version}),
+ ${misc:Depends},
 Description: Open Source Computer Vision Library (the video module - development)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -420,9 +473,10 @@ Description: Open Source Computer Vision Library (the video module - development
 Package: libopencv-videoio-dev
 Architecture: any
 Section: libdevel
-Depends: libopencv-videoio413 (= ${binary:Version}),
-         libopencv-core-dev (= ${binary:Version}),
-         ${misc:Depends}
+Depends:
+ libopencv-core-dev (= ${binary:Version}),
+ libopencv-videoio413 (= ${binary:Version}),
+ ${misc:Depends},
 Description: Open Source Computer Vision Library (the videoio module - development)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -432,9 +486,10 @@ Description: Open Source Computer Vision Library (the videoio module - developme
 Package: libopencv-videostab-dev
 Architecture: any
 Section: libdevel
-Depends: libopencv-videostab413 (= ${binary:Version}),
-         libopencv-core-dev (= ${binary:Version}),
-         ${misc:Depends}
+Depends:
+ libopencv-core-dev (= ${binary:Version}),
+ libopencv-videostab413 (= ${binary:Version}),
+ ${misc:Depends},
 Description: Open Source Computer Vision Library (the videostab module - development)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -444,25 +499,26 @@ Description: Open Source Computer Vision Library (the videostab module - develop
 Package: libopencv-contrib-dev
 Architecture: any
 Section: libdevel
-Depends: libopencv-contrib413 (= ${binary:Version}),
-         libopencv-calib3d-dev (= ${binary:Version}),
-         libopencv-core-dev (= ${binary:Version}),
-         libopencv-dnn-dev (= ${binary:Version}),
-         libopencv-features2d-dev (= ${binary:Version}),
-         libopencv-flann-dev (= ${binary:Version}),
-         libopencv-highgui-dev (= ${binary:Version}),
-         libopencv-imgcodecs-dev (= ${binary:Version}),
-         libopencv-imgproc-dev (= ${binary:Version}),
-         libopencv-ml-dev (= ${binary:Version}),
-         libopencv-objdetect-dev (= ${binary:Version}),
-         libopencv-photo-dev (= ${binary:Version}),
-         libopencv-shape-dev (= ${binary:Version}),
-         libopencv-stitching-dev (= ${binary:Version}),
-         libopencv-superres-dev (= ${binary:Version}),
-         libopencv-video-dev (= ${binary:Version}),
-         libopencv-videoio-dev (= ${binary:Version}),
-         libopencv-videostab-dev (= ${binary:Version}),
-         ${misc:Depends}
+Depends:
+ libopencv-calib3d-dev (= ${binary:Version}),
+ libopencv-contrib413 (= ${binary:Version}),
+ libopencv-core-dev (= ${binary:Version}),
+ libopencv-dnn-dev (= ${binary:Version}),
+ libopencv-features2d-dev (= ${binary:Version}),
+ libopencv-flann-dev (= ${binary:Version}),
+ libopencv-highgui-dev (= ${binary:Version}),
+ libopencv-imgcodecs-dev (= ${binary:Version}),
+ libopencv-imgproc-dev (= ${binary:Version}),
+ libopencv-ml-dev (= ${binary:Version}),
+ libopencv-objdetect-dev (= ${binary:Version}),
+ libopencv-photo-dev (= ${binary:Version}),
+ libopencv-shape-dev (= ${binary:Version}),
+ libopencv-stitching-dev (= ${binary:Version}),
+ libopencv-superres-dev (= ${binary:Version}),
+ libopencv-video-dev (= ${binary:Version}),
+ libopencv-videoio-dev (= ${binary:Version}),
+ libopencv-videostab-dev (= ${binary:Version}),
+ ${misc:Depends},
 Description: Open Source Computer Vision Library (the contrib modules - development)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -472,28 +528,30 @@ Description: Open Source Computer Vision Library (the contrib modules - developm
 Package: libopencv-dev
 Architecture: any
 Section: libdevel
-Depends: libopencv-calib3d-dev (= ${binary:Version}),
-         libopencv-core-dev (= ${binary:Version}),
-         libopencv-dnn-dev (= ${binary:Version}),
-         libopencv-features2d-dev (= ${binary:Version}),
-         libopencv-flann-dev (= ${binary:Version}),
-         libopencv-highgui-dev (= ${binary:Version}),
-         libopencv-imgcodecs-dev (= ${binary:Version}),
-         libopencv-imgproc-dev (= ${binary:Version}),
-         libopencv-ml-dev (= ${binary:Version}),
-         libopencv-objdetect-dev (= ${binary:Version}),
-         libopencv-photo-dev (= ${binary:Version}),
-         libopencv-shape-dev (= ${binary:Version}),
-         libopencv-stitching-dev (= ${binary:Version}),
-         libopencv-superres-dev (= ${binary:Version}),
-         libopencv-video-dev (= ${binary:Version}),
-         libopencv-videoio-dev (= ${binary:Version}),
-         libopencv-videostab-dev (= ${binary:Version}),
-         libopencv-contrib-dev (= ${binary:Version}),
-         pkgconf,
-         ${misc:Depends},
-         ${shlibs:Depends}
-Recommends: opencv-data
+Depends:
+ libopencv-calib3d-dev (= ${binary:Version}),
+ libopencv-contrib-dev (= ${binary:Version}),
+ libopencv-core-dev (= ${binary:Version}),
+ libopencv-dnn-dev (= ${binary:Version}),
+ libopencv-features2d-dev (= ${binary:Version}),
+ libopencv-flann-dev (= ${binary:Version}),
+ libopencv-highgui-dev (= ${binary:Version}),
+ libopencv-imgcodecs-dev (= ${binary:Version}),
+ libopencv-imgproc-dev (= ${binary:Version}),
+ libopencv-ml-dev (= ${binary:Version}),
+ libopencv-objdetect-dev (= ${binary:Version}),
+ libopencv-photo-dev (= ${binary:Version}),
+ libopencv-shape-dev (= ${binary:Version}),
+ libopencv-stitching-dev (= ${binary:Version}),
+ libopencv-superres-dev (= ${binary:Version}),
+ libopencv-video-dev (= ${binary:Version}),
+ libopencv-videoio-dev (= ${binary:Version}),
+ libopencv-videostab-dev (= ${binary:Version}),
+ pkgconf,
+ ${misc:Depends},
+ ${shlibs:Depends},
+Recommends:
+ opencv-data,
 Description: Open Source Computer Vision Library (development meta-package)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
@@ -505,7 +563,8 @@ Description: Open Source Computer Vision Library (development meta-package)
 Package: opencv-data
 Architecture: all
 Multi-Arch: foreign
-Depends: ${misc:Depends}
+Depends:
+ ${misc:Depends},
 Description: Open Source Computer Vision Library (data files)
  OpenCV (Open Source Computer Vision) is a library of programming
  functions for real-time computer vision.
