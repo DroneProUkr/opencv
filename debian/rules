@@ -5,13 +5,14 @@ include /usr/share/dpkg/architecture.mk
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
 CONTRIB  := $(CURDIR)/opencv_contrib/modules
+KLEIDICV := $(CURDIR)/kleidicv
 BUILDDIR := obj-$(DEB_HOST_MULTIARCH)
 
-# Feature/layout flags shared by the dynamic and static passes.
 COMMON_FLAGS = \
 	--no-warn-unused-cli \
 	-DCMAKE_BUILD_TYPE=Release \
 	-DOPENCV_EXTRA_MODULES_PATH=$(CONTRIB) \
+	-DKLEIDICV_SOURCE_PATH=$(KLEIDICV) \
 	-DCMAKE_INSTALL_LIBDIR=lib/$(DEB_HOST_MULTIARCH) \
 	-DOPENCV_GENERATE_PKGCONFIG=ON \
 	-DOPENCV_GENERATE_SETUPVARS=OFF \
@@ -75,6 +76,10 @@ override_dh_auto_configure:
 	done; \
 	[ -z "$$bad" ] || { echo "rules: package SONAME suffix != OpenCV $$maj.$$min (want $$want):$$bad" >&2; exit 1; }; \
 	echo "rules: package SONAME suffix $$want matches OpenCV $$maj.$$min"
+	if [ "$(DEB_HOST_ARCH)" = "arm64" ]; then \
+		test -f kleidicv/adapters/opencv/CMakeLists.txt || \
+		{ echo "rules: kleidicv submodule missing — run 'git submodule update --init kleidicv'" >&2; exit 1; }; \
+	fi
 	dh_auto_configure -B $(BUILDDIR) -- $(COMMON_FLAGS) \
 		-DBUILD_SHARED_LIBS=ON \
 		-DBUILD_opencv_apps=ON
@@ -86,18 +91,12 @@ override_dh_auto_install:
 	dh_auto_install -B $(BUILDDIR) --destdir=debian/tmp
 
 execute_before_dh_install:
-	# cvconfig.h is architecture-specific: relocate it to the multiarch include
-	# dir, as Debian does (it is only included under __OPENCV_BUILD, never by
-	# consumers, so this does not affect downstream compiles).
 	mkdir -p debian/tmp/usr/include/$(DEB_HOST_MULTIARCH)/opencv4/opencv2
 	mv debian/tmp/usr/include/opencv4/opencv2/cvconfig.h \
 	   debian/tmp/usr/include/$(DEB_HOST_MULTIARCH)/opencv4/opencv2/cvconfig.h
-	# data: keep only the cascade/quality data (opencv-data); drop bundled
-	# licences and valgrind suppressions, as Debian does.
 	-$(RM) -r debian/tmp/usr/share/licenses
 	-find debian/tmp -type f -name '*.supp' -delete
 	-find debian/tmp -type d -empty -delete
 
-# Every staged file must land in exactly one package — fail loudly otherwise.
 override_dh_missing:
 	dh_missing --fail-missing

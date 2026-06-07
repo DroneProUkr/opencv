@@ -26,9 +26,6 @@ usr/lib/*/libopencv_freetype.so
 usr/include/opencv4/opencv2/fuzzy.hpp
 usr/include/opencv4/opencv2/fuzzy
 usr/lib/*/libopencv_fuzzy.so
-usr/include/opencv4/opencv2/gapi.hpp
-usr/include/opencv4/opencv2/gapi
-usr/lib/*/libopencv_gapi.so
 usr/include/opencv4/opencv2/hfs.hpp
 usr/lib/*/libopencv_hfs.so
 usr/include/opencv4/opencv2/img_hash.hpp
