@@ -36,6 +36,7 @@ COMMON_FLAGS = \
 	-DBUILD_opencv_objc=OFF \
 	-DBUILD_opencv_objc_bindings_generator=OFF \
 	-DBUILD_opencv_ts=OFF \
+	-DBUILD_opencv_gapi=OFF \
 	-DWITH_JPEG=ON \
 	-DWITH_PNG=ON \
 	-DWITH_TIFF=ON \
@@ -61,6 +62,19 @@ override_dh_auto_clean:
 	dh_auto_clean -B $(BUILDDIR)
 
 override_dh_auto_configure:
+	set -e; \
+	vh=opencv/modules/core/include/opencv2/core/version.hpp; \
+	maj=$$(sed -n 's/.*CV_VERSION_MAJOR[[:space:]]\+\([0-9]\+\).*/\1/p' $$vh | head -1); \
+	min=$$(sed -n 's/.*CV_VERSION_MINOR[[:space:]]\+\([0-9]\+\).*/\1/p' $$vh | head -1); \
+	test -n "$$maj" && test -n "$$min" || { echo "rules: cannot read OpenCV version from $$vh" >&2; exit 1; }; \
+	want=$$maj$$(printf '%02d' $$min); \
+	bad=; \
+	for p in $$(sed -n 's/^Package: \(libopencv-[a-z0-9]*[0-9]\)$$/\1/p' debian/control); do \
+		suf=$${p##*[!0-9]}; \
+		[ "$$suf" = "$$want" ] || bad="$$bad $$p($$suf)"; \
+	done; \
+	[ -z "$$bad" ] || { echo "rules: package SONAME suffix != OpenCV $$maj.$$min (want $$want):$$bad" >&2; exit 1; }; \
+	echo "rules: package SONAME suffix $$want matches OpenCV $$maj.$$min"
 	dh_auto_configure -B $(BUILDDIR) -- $(COMMON_FLAGS) \
 		-DBUILD_SHARED_LIBS=ON \
 		-DBUILD_opencv_apps=ON
